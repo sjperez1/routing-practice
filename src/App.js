@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {Routes, Route} from 'react-router-dom';
+import Home from './views/Home';
+import Numword from './views/Numword';
+import TextColor from './views/TextColor';
+import Error from './views/Error';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/:numword" element={<Numword/>} />
+        <Route path="/:numberword/:color/:background" element={<TextColor/>} />
+        <Route path="*" element={<Error/>} />
+      </Routes>
     </div>
   );
 }
